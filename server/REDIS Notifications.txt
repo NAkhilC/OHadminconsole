@@ -1,0 +1,26 @@
+REDIS Notifications
+
+
+a b 
+1 2 
+
+users 
+{id:a1@ontariohealth.ca, permission_level: a, role: admin}, 
+{id:a2@ontariohealth.ca, permission_level: ab}
+{id:a3@ontariohealth.ca, permission_level: b}
+
+
+idx users
+content
+idx date_starts
+idx date_ends
+created by
+created at
+priority
+
+
+
+
+Notifications 
+user_type_id
+content 

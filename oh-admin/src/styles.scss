@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary: #14769d;
+$dark: black;
+$light: $gray-100;
+
+//futhermore it's necesary override the $theme-colors
+
+$theme-colors: (
+  "primary": $primary,
+  "dark": $dark,
+  "light": $light,
+);
+@import "bootstrap/scss/bootstrap";
+
+$app-primary: #14769d;
+$theme-colors: (
+  "primary": $primary,
+);
+
+.navbar-custom {
+  background-color: $primary;
+}
