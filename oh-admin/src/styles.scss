@@ -7,6 +7,11 @@
 $primary: #14769d;
 $dark: black;
 $light: $gray-100;
+$success: rgb(156, 253, 156);
+$danger: rgb(250, 129, 129);
+$btn-success: rgb(3, 106, 3);
+$warning: #ffecb5;
+$info: #b6effb;
 
 //futhermore it's necesary override the $theme-colors
 
@@ -14,14 +19,47 @@ $theme-colors: (
   "primary": $primary,
   "dark": $dark,
   "light": $light,
+  "success": $success,
+  "btn-success": $btn-success,
 );
 @import "bootstrap/scss/bootstrap";
 
 $app-primary: #14769d;
 $theme-colors: (
   "primary": $primary,
+  "success": $success,
+  "danger": $danger,
+  "btn-success": $btn-success,
+  "warning": $warning,
+  "info": $info,
 );
 
 .navbar-custom {
   background-color: $primary;
 }
+.admin-card {
+  background-color: #eaf5f9;
+  height: 200px;
+  border-color: $primary;
+  border-style: solid;
+}
+.notifications-panel li {
+  list-style: none;
+  border-left: 4px solid $primary;
+}
+.notifications-panel li:nth-child(odd) {
+  background-color: #eaf5f9;
+}
+.card-lables {
+  background-color: #eaf5f9;
+  border: 2px solid $primary;
+}
+.notification-box {
+  min-height: 350px;
+
+  box-shadow: 5px 5px 5px 5px #686969;
+  margin-right: 35px;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";

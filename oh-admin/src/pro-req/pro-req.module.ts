@@ -6,12 +6,22 @@ import { ProReqComponent } from './pro-req.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { FormsService } from 'src/shared/services/form/forms.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WelcomePageComponent } from './welcome/welcome-page/welcome-page.component';
 import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { AdminHomeComponent } from './admin-console/admin-home/admin-home.component';
+import { NgbAlert, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { ErrorComponent } from './error/error.component';
+import { ProReqFormComponent } from './pro-req-form/pro-req-form.component';
 
 @NgModule({
-  declarations: [LoginComponent, HomeComponent, ProReqComponent, WelcomePageComponent, WelcomeComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  declarations: [
+    LoginComponent,
+    HomeComponent,
+    ProReqComponent,
+    WelcomeComponent,
+    ErrorComponent,
+    ProReqFormComponent,
+  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbAlert],
   exports: [LoginComponent, HomeComponent, ProReqComponent],
   providers: [FormsService],
 })

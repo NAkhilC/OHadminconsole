@@ -6,6 +6,7 @@ const sessions = require("express-session");
 const cors = require("cors");
 var bodyParser = require("body-parser");
 const path = require("path");
+const config = require("./config");
 
 //Sets our app to use the handlebars engine
 app.use(cookieParser("kkaka"));
@@ -41,4 +42,6 @@ app.use(
 app.use(cookieParser());
 app.use("/", require("./routes/index"));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(config.getProperty("server.port"), () =>
+  console.log(`Example app listening on port ${config.getProperty("server.port")}!`)
+);

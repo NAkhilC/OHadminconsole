@@ -1,0 +1,181 @@
+<div class="container">
+  <div class="text-center p-3">
+    <h3>Manage Notifications</h3>
+  </div>
+  <div class="row">
+    <div class="col col-lg pb-5">
+      <!-- <div class="row w-100 mt-2">
+        <div class="flex">
+          <button class="btn btn-primary mt-2 ms-1">All Notifications</button>
+          <button class="btn btn-primary mt-2 ms-1">
+            On Going Notifications
+          </button>
+          <button class="btn btn-primary mt-2 ms-1">
+            Expired Notifications
+          </button>
+          <button class="btn btn-primary mt-2 ms-1">
+            Upcoming Notifications
+          </button>
+          <button class="btn btn-primary mt-2 ms-1">Saved Notifications</button>
+        </div>
+      </div> -->
+      <div class="notifications-panel p-0">
+        <div class="row w-100">
+          <div class="col col-4">
+            <i>Showing results for <b>All Notifications</b></i>
+          </div>
+          <div class="col col-4">
+            <div
+              class="justify-content-center alert alert-success"
+              role="alert"
+              *ngIf="messageStatus && messageStatus.status === 200"
+            >
+              <i>{{ messageStatus.message }}</i>
+            </div>
+          </div>
+        </div>
+        <div class="row w-100">
+          <div
+            class="col col-12 pt-4"
+            *ngFor="let eachdata of data; let i = index"
+          >
+            <div class="notification-box">
+              <div class="row">
+                <div class="col col-4"></div>
+                <div class="col col-4">
+                  <h5 class="justify-content-center">
+                    {{ eachdata.notificationName }}
+                  </h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-10">
+                  <p class="p-2">{{ eachdata.context }}</p>
+                </div>
+                <div class="col col-2">
+                  <div class="row">
+                    <h6><b>Effective Date :</b></h6>
+                    <h6>{{ eachdata.effectiveDate }}</h6>
+                  </div>
+                  <div class="row">
+                    <h6><b>End Date :</b></h6>
+                    <h6>{{ eachdata.endDate }}</h6>
+                  </div>
+                  <div class="row">
+                    <h6><b>Targetted Users :</b></h6>
+                    <div [ngSwitch]="eachdata.targetUsers">
+                      <h6 *ngSwitchCase="'a'">Covid 19 Users</h6>
+                      <h6 *ngSwitchCase="'b'">Provincial Requisition</h6>
+                      <h6 *ngSwitchDefault>All users</h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h6><b>Priority :</b></h6>
+                    <h6>{{ eachdata.priority }}</h6>
+                  </div>
+                  <div class="row">
+                    <h6
+                      role="button"
+                      class="text-primary"
+                      (click)="edit(eachdata)"
+                    >
+                      <u>Edit</u>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-10">
+                  <h6
+                    role="button"
+                    class="text-primary p-4"
+                    (click)="delete(eachdata)"
+                  >
+                    <u>Delete</u>
+                  </h6>
+                </div>
+                <div class="col col-2">
+                  <h6
+                    role="button"
+                    class="text-primary pt-4"
+                    *ngIf="i == data.length - 1 && i + 1 < maxMessages"
+                    (click)="edit()"
+                  >
+                    <u>Add Notification</u>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <li (click)="activete(eachdata)">
+            <div class="row w-100">
+              <div class="col col-8">
+                <h5>{{ eachdata.notificationName }}</h5>
+                <p>{{ eachdata.context }}</p>
+              </div>
+              <div class="col col-4 mt-2">
+                <h6 role="button" class="text-primary" (click)="edit(eachdata)">
+                  <u>Edit</u>
+                </h6>
+                <h6
+                  role="button"
+                  class="text-primary"
+                  (click)="delete(eachdata)"
+                >
+                  <u>Delete</u>
+                </h6>
+              </div>
+            </div>
+          </li> -->
+      </div>
+    </div>
+    <!-- <div class="col col-6">
+      <button
+        class="btn btn-success"
+        *ngIf="data.length < maxMessages"
+        (click)="edit()"
+      >
+        Create New
+      </button>
+      <div *ngIf="activeMessage">
+        <div class="row">
+          <div class="col col-9">
+            <div class="row">
+              <div class="col col-lg p-2">
+                <h3>{{ activeMessage.notificationName }}</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-lg">
+                {{ activeMessage.context }}
+              </div>
+            </div>
+          </div>
+          <div class="col col-3">
+            <div class="row">
+              <h6><b>Effective Date :</b></h6>
+              <h6>{{ activeMessage.effectiveDate }}</h6>
+            </div>
+            <div class="row">
+              <h6><b>End Date :</b></h6>
+              <h6>{{ activeMessage.endDate }}</h6>
+            </div>
+            <div class="row">
+              <h6><b>Targetted Users :</b></h6>
+              <div [ngSwitch]="activeMessage.targetUsers">
+                <h6 *ngSwitchCase="'a'">Covid 19 Users</h6>
+                <h6 *ngSwitchCase="'b'">Provincial Requisition</h6>
+                <h6 *ngSwitchDefault>All users</h6>
+              </div>
+            </div>
+            <div class="row">
+              <h6><b>Priority :</b></h6>
+              <h6>{{ activeMessage.priority }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

@@ -1,6 +1,9 @@
 <div>
   <form [formGroup]="loginForm">
     <h1 class="mt-2">Log in</h1>
+    <div *ngIf="showError" class="alert alert-danger pt-2" role="alert">
+      Wrong credentials. Please try again.
+    </div>
     <div class="row">
       <div class="col col-6 form-group mt-2">
         <label for="exampleInputEmail1">Login Id</label>

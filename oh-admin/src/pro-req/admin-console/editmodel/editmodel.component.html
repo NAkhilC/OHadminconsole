@@ -1,0 +1,119 @@
+<div class="p-5">
+  <div *ngIf="responseText === 400" class="alert alert-danger" role="alert">
+    Notification not saved, plaese try again
+  </div>
+  <form [formGroup]="notificationForm">
+    <div class="row">
+      <div class="col col-lg">
+        <div class="col col-lg form-group mt-2">
+          <label for="exampleInputEmail1" class="text-primary fw-bold"
+            >Name</label
+          >
+          <input
+            type="text"
+            class="form-control rounded-0"
+            id="exampleInputEmail1"
+            formControlName="notificationName"
+          />
+        </div>
+        <div class="col col-lg form-group mt-2">
+          <label for="exampleInputEmail1" class="text-primary fw-bold"
+            >Message</label
+          >
+          <textarea
+            class="form-control rounded-0"
+            id="exampleInputEmail1"
+            rows="7"
+            formControlName="context"
+          ></textarea>
+        </div>
+        <div class="col col-lg form-group mt-2">
+          <div class="row">
+            <div class="col col-lg">
+              <div class="row">
+                <div class="col col-6">
+                  <label for="exampleInputEmail1" class="text-primary fw-bold"
+                    >Effective Date</label
+                  >
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-6">
+                  <label for="exampleInputEmail1" class="text-primary"
+                    >From</label
+                  >
+                  <input
+                    class="form-control rounded-0"
+                    placeholder="yyyy-mm-dd"
+                    formControlName="effectiveDate"
+                  />
+                </div>
+                <div class="col col-6">
+                  <label for="exampleInputEmail1" class="text-primary"
+                    >To</label
+                  >
+                  <input
+                    class="form-control rounded-0"
+                    placeholder="yyyy-mm-dd"
+                    formControlName="endDate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div class="col col-lg forn-group mt-1">
+          <div class="row">
+            <div class="col col-lg">
+              <label for="exampleInputEmail1" class="text-primary fw-bold"
+                >Priority</label
+              >
+              <select
+                class="form-select rounded-0"
+                formControlName="priority"
+                aria-label="Default select example"
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="col col-lg">
+              <label for="exampleInputEmail1" class="text-primary fw-bold"
+                >Target Users</label
+              >
+              <select
+                class="form-select rounded-0"
+                formControlName="targetUsers"
+                aria-label="Default select example"
+              >
+                <option value="a">Covid 19 Users</option>
+                <option value="b">Provincial Requisition Users</option>
+                <option value="ab">All Users</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg">
+          <div class="row">
+            <div class="col col-10">
+              <button class="btn mt-2 btn-outline-primary" (click)="close()">
+                Cancel
+              </button>
+            </div>
+            <div class="col col-2">
+              <button
+                [disabled]="!notificationForm.touched || responseText === 200"
+                class="btn mt-2 btn-primary"
+                (click)="save()"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
